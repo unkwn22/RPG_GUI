@@ -29,7 +29,7 @@ public class Start {
 			System.out.println("1. Male | 2. Female");
 			System.out.println("Your gender");
 			int gender = input.NumInput();
-			Human player = new Human(name, 10, 10, 1, 2000, gender);
+			Human player = new Human(name, 10, 10, 1, 3, 3,2000, gender);
 			return player;
 		}
 		

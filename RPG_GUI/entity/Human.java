@@ -6,8 +6,8 @@ public class Human extends Unit {
 	//1 == male 2 == female
 	private int gender;
 
-	public Human(String name, int MAX_HP, int hp, int damage, int gp, int gender) {
-		super(name, MAX_HP, hp, damage);
+	public Human(String name, int MAX_HP, int hp, int damage, int def, int lvl, int gp, int gender) {
+		super(name, MAX_HP, hp, damage, def, lvl);
 		this.gp = gp;
 		this.gender = gender;
 	}

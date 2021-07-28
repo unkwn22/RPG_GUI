@@ -36,7 +36,7 @@ public class Battle {
         monsterName = randomMonster.getName();
         monsterHp = randomMonster.getHp();
         monsterDam = randomMonster.getDamage();
-        monsterDrop = randomMonster.getDrop();
+        monsterDrop = randomMonster.getGpDrop();
 
         myHp = Town.player.getHp();
         myDam = Town.player.getDamage();
