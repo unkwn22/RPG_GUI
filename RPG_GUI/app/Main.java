@@ -11,7 +11,7 @@ import entity.Weapon;
 import handler.Start;
 import handler.Town;
 
-//Jason Choi test 2
+//Jason Choi test 3
 
 public class Main {
 	Start s = new Start();
