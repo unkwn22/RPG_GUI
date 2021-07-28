@@ -2,6 +2,7 @@ package constructor;
 
 import entity.Weapon;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import entity.Potion;
@@ -10,80 +11,49 @@ public class ItemConstructor {
 	
 	ArrayList<Weapon> weapon = new ArrayList<>();
 	ArrayList<Potion> potion = new ArrayList<>();
-	
+//	ArrayList<Helmet> helmet = new ArrayList<>();
+//	ArrayList<Body> body = new ArrayList<>();
+//	ArrayList<Legs> legs = new ArrayList<>();
+//	ArrayList<Boots> boots = new ArrayList<>();
+//	ArrayList<Gloves> gloves = new ArrayList<>();
+//	ArrayList<Ring> ring = new ArrayList<>();
+//	ArrayList<Cape> cape = new ArrayList<>();
+
+
+
+	//Weapons initializer
 	public ArrayList<Weapon> initWeapons() {
-		Weapon bronzeW = new Weapon("Bronze Sword", 1000);
-		bronzeW.setDamage(4);
-		weapon.add(bronzeW);
-		
-		Weapon ironW = new Weapon("Iron Sword", 2500);
-		ironW.setDamage(6);
-		weapon.add(ironW);
-		
-		Weapon steelW = new Weapon("Steel Sword", 4000);
-		steelW.setDamage(11);
-		weapon.add(steelW);
-		
-		Weapon blackW = new Weapon("Black Sword", 5000);
-		blackW.setDamage(14);
-		weapon.add(blackW);
-		
-		Weapon mithrilW = new Weapon("Mithril Sword", 5900);
-		mithrilW.setDamage(16);
-		weapon.add(mithrilW);
-		
-		Weapon adamantW = new Weapon("Adamant Sword", 7000);
-		adamantW.setDamage(23);
-		weapon.add(adamantW);
-		
-		Weapon runeW = new Weapon("Rune Sword", 10000);
-		runeW.setDamage(38);
-		weapon.add(runeW);
-		
-		Weapon dragonW = new Weapon("Dragon Sword", 20000);
-		dragonW.setDamage(65);
-		weapon.add(dragonW);
-		
+		String[] swordName = {"Bronze Sword", "Iron Sword", "Steel Sword", "Black Sword", "Mithril Sword", "Adamant Sword", "Rune Sword", "Dragon Sword"};
+		int[] swordCost = {1000, 2500, 4000, 5000, 5900, 7000, 10000, 20000};
+		int[] swordDamage = {4, 6, 11, 14, 16, 23, 38, 65};
+		int[] swordAccuracy = {30, 40, 50, 60, 70, 75, 80, 90};
+
+		for(int i = 0; i < swordName.length; i++){
+			weaponAdder(swordName[i], swordCost[i], swordDamage[i], swordAccuracy[i]);
+		}
+
 		return weapon;
 	}
-	
+
+	public void weaponAdder(String name, int cost, int damage, int accuracy){
+		Weapon sword = new Weapon(name, cost, damage, accuracy);
+		weapon.add(sword);
+	}
+
+	//Potions initializer
 	public ArrayList<Potion> initPotions(){
-		Potion shrimp = new Potion("Shrimp", 100);
-		shrimp.setHeal(3); 
-		potion.add(shrimp);
-		
-		Potion chicken = new Potion("Chicken", 150);
-		chicken.setHeal(8); 
-		potion.add(chicken);
-		
-		Potion salmon = new Potion("Salmon", 240);
-		salmon.setHeal(15); 
-		potion.add(salmon);
-		
-		Potion lobster = new Potion("Lobster", 350);
-		lobster.setHeal(26); 
-		potion.add(lobster);
-		
-		Potion mantray = new Potion("Mantray", 420);
-		mantray.setHeal(33); 
-		potion.add(mantray);
-		
-		Potion karambwan = new Potion("Karambwan", 490);
-		karambwan.setHeal(40); 
-		potion.add(karambwan);
-		
-		Potion shark = new Potion("Shark", 570);
-		shark.setHeal(48); 
-		potion.add(shark);
-		
-		Potion angler = new Potion("Angler fish", 700);
-		angler.setHeal(65);
-		potion.add(angler);
-		
-		Potion full = new Potion("Full restore", 1000);
-		full.setHeal(0);
-		potion.add(full);
-		
+		String[] foodName = {"Shrimp", "Chicken", "Salmon", "Lobster","Mantray", "Karambwan", "Shark", "Angler fish", "Full restore"};
+		int[] foodCost = {100, 150, 240, 350, 420, 490, 570, 700, 1000};
+		int[] foodHeal = {3, 8, 15, 26, 33, 40, 48, 65, 100000};
+
+		for(int i = 0; i < foodName.length; i++){
+			potionAdder(foodName[i], foodCost[i], foodHeal[i]);
+		}
 		return potion;
+	}
+
+	public void potionAdder(String name, int cost, int heal){
+		Potion food = new Potion(name, cost, heal);
+		potion.add(food);
 	}
 }
