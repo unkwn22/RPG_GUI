@@ -11,7 +11,7 @@ import entity.Weapon;
 import handler.Start;
 import handler.Town;
 
-//push test 5
+//push test 6
 
 public class Main {
 	Start s = new Start();
