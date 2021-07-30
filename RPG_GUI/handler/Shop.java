@@ -43,26 +43,16 @@ public class Shop {
 			}
 		}
 	}
-	
-	public void buyShop() {
-		//viewing for weapons, potions, armour
-		boolean wView = false;
-		boolean pView = false;
-		boolean aView = false;
-		boolean hView = false;
-		boolean bView = false;
-		boolean lView = false;
-		boolean gView = false;
-		boolean rView = false;
 
+	//Buying
+	public void buyShop() {
 		while(true) {
-			System.out.println("1. Weapons | 2. Potions | 3. Armour | 0.Back");
+			System.out.println("1. Weapons | 2. Potions | 3. Armour | 0. Back");
 			int choice = Start.input.NumInput();
 			if(choice == 0) {
 				break;
 			}else if(choice == 1) {
-				wView = true;
-				while(wView) {
+				while(true) {
 					for(int i = 0; i < weapons.size(); i++) {
 						System.out.println("[" + (i+1) + "]" + weapons.get(i).getName() + " | " + weapons.get(i).getCost() + " | " + weapons.get(i).getDamage());
 					}
@@ -71,15 +61,14 @@ public class Shop {
 					System.out.println("What would you like to buy?");
 					choice = Start.input.NumInput();
 					if(choice == 0) {
-						wView = false;
+						break;
 					}else if(choice <= weapons.size()){
 						//passing through purchase method if its a weapon or a potion
 						init.purchase(choice, "weapon");
 					}
 				}
 			}else if(choice == 2) {
-				pView = true;
-				while(pView) {
+				while(true) {
 					for(int i = 0; i < potions.size(); i++) {
 						System.out.println("[" + (i+1) + "]" + potions.get(i).getName() + " | " + potions.get(i).getCost() + " | " + potions.get(i).getHeal());
 					}
@@ -88,23 +77,21 @@ public class Shop {
 					System.out.println("What would you like to buy?");
 					choice = Start.input.NumInput();
 					if(choice == 0) {
-						pView = false;
+						break;
 					}else if(choice <= potions.size()){
 						//passing through purchase method if its a weapon or a potion
 						init.purchase(choice, "potion");
 					}
 				}
 			}else if(choice == 3){
-				aView = true;
-				while(aView){
+				while(true){
 					System.out.println("1. Helmets | 2. Body | 3. Legs | 4. Gloves | 5. Rings | 0. Back");
 					System.out.println("[0] Back");
 					choice = Start.input.NumInput();
 					if(choice == 0) {
-						aView = false;
+						break;
 					}else if(choice == 1){
-						hView = true;
-						while(hView){
+						while(true){
 							for(int i = 0; i < helmets.size(); i++) {
 								System.out.println("[" + (i+1) + "]" + helmets.get(i).getName() + " | " + helmets.get(i).getCost() + " | " + helmets.get(i).getDef());
 							}
@@ -113,15 +100,14 @@ public class Shop {
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
 							if(choice == 0) {
-								hView = false;
+								break;
 							}else if(choice <= helmets.size()){
 								//passing through purchase method if its a weapon or a potion
 								init.purchase(choice, "helmet");
 							}
 						}
 					}else if(choice == 2){
-						bView = true;
-						while(bView){
+						while(true){
 							for(int i = 0; i < body.size(); i++) {
 								System.out.println("[" + (i+1) + "]" + body.get(i).getName() + " | " + body.get(i).getCost() + " | " + body.get(i).getDef());
 							}
@@ -130,15 +116,14 @@ public class Shop {
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
 							if(choice == 0) {
-								bView = false;
+								break;
 							}else if(choice <= body.size()){
 								//passing through purchase method if its a weapon or a potion
 								init.purchase(choice, "body");
 							}
 						}
 					}else if(choice == 3){
-						lView = true;
-						while(lView){
+						while(true){
 							for(int i = 0; i < legs.size(); i++) {
 								System.out.println("[" + (i+1) + "]" + legs.get(i).getName() + " | " + legs.get(i).getCost() + " | " + legs.get(i).getDef());
 							}
@@ -147,15 +132,14 @@ public class Shop {
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
 							if(choice == 0) {
-								lView = false;
+								break;
 							}else if(choice <= legs.size()){
 								//passing through purchase method if its a weapon or a potion
 								init.purchase(choice, "leg");
 							}
 						}
 					}else if(choice == 4){
-						gView = true;
-						while(gView){
+						while(true){
 							for(int i = 0; i < gloves.size(); i++) {
 								System.out.println("[" + (i+1) + "]" + gloves.get(i).getName() + " | " + gloves.get(i).getCost() + " | " + gloves.get(i).getDef() + " | " + gloves.get(i).getAccuracy());
 							}
@@ -164,15 +148,14 @@ public class Shop {
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
 							if(choice == 0) {
-								gView = false;
+								break;
 							}else if(choice <= gloves.size()){
 								//passing through purchase method if its a weapon or a potion
 								init.purchase(choice, "glove");
 							}
 						}
 					}else if(choice == 5){
-						rView = true;
-						while(rView){
+						while(true){
 							for(int i = 0; i < rings.size(); i++) {
 								System.out.println("[" + (i+1) + "]" + rings.get(i).getName() + " | " + rings.get(i).getCost() + " | " + rings.get(i).getDef() + " | " + rings.get(i).getAccuracy());
 							}
@@ -181,7 +164,7 @@ public class Shop {
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
 							if(choice == 0) {
-								rView = false;
+								break;
 							}else if(choice <= rings.size()){
 								//passing through purchase method if its a weapon or a potion
 								init.purchase(choice, "ring");
@@ -192,7 +175,8 @@ public class Shop {
 			}
 		}
 	}
-	
+
+	//Selling
 	public void sellShop() {
 		while(true) {
 			System.out.println("1. Weapon | 2. Potion | 3. Armour | 0. Back");
@@ -207,35 +191,110 @@ public class Shop {
 					choice = Start.input.NumInput();
 					if(choice == 0){
 						break;
-					}else if(Inventory.wList.size() == 0) {
+					}
+					if(Inventory.wList.size() == 0) {
 						System.out.println("There's nothing to sell");
-					}else{
-						int cost = Inventory.wList.get(choice-1).getCost();
-						double tax = cost * 0.2;
-						int sellPrice = cost - (int)tax;
-						Inventory.wList.remove(choice-1);
-						Town.player.setGp(Town.player.getGp() + sellPrice);
-						System.out.println("Sold");
+					}else if(choice <= Inventory.wList.size()){
+						init.sell(choice, "weapon");
 					}
 				}
 			}else if(choice == 2) {
 				while(true){
 					invenInit.view("potion");
-					choice = Start.input.NumInput();
 					System.out.println("Current Gold: " + Town.player.getGp());
 					System.out.println("What would you like to sell?");
 					choice = Start.input.NumInput();
 					if(choice == 0){
 						break;
-					}else if(Inventory.pList.size() == 0) {
+					}
+					if(Inventory.pList.size() == 0) {
 						System.out.println("There's nothing to sell");
-					}else{
-						int cost = Inventory.pList.get(choice-1).getCost();
-						double tax = cost * 0.2;
-						int sellPrice = cost - (int)tax;
-						Inventory.pList.remove(choice-1);
-						Town.player.setGp(Town.player.getGp() + sellPrice);
-						System.out.println("Sold");
+					}else if(choice <= Inventory.pList.size()){
+						init.sell(choice, "potion");
+					}
+				}
+			}else if(choice == 3){
+				while(true){
+					System.out.println("1. Helmets | 2. Body | 3. Legs | 4. Gloves | 5. Rings | 0. Back");
+					System.out.println("[0] Back");
+					choice = Start.input.NumInput();
+					if(choice == 0){
+						break;
+					}else if(choice == 1){
+						while(true){
+							invenInit.view("helmet");
+							System.out.println("Current Gold: " + Town.player.getGp());
+							System.out.println("What would you like to sell?");
+							choice = Start.input.NumInput();
+							if(choice == 0){
+								break;
+							}
+							if(Inventory.hList.size() == 0) {
+								System.out.println("There's nothing to sell");
+							}else if(choice <= Inventory.hList.size()){
+								init.sell(choice, "helmet");
+							}
+						}
+					}else if(choice == 2){
+						while(true){
+							invenInit.view("body");
+							System.out.println("Current Gold: " + Town.player.getGp());
+							System.out.println("What would you like to sell?");
+							choice = Start.input.NumInput();
+							if(choice == 0){
+								break;
+							}
+							if(Inventory.bList.size() == 0) {
+								System.out.println("There's nothing to sell");
+							}else if(choice <= Inventory.bList.size()){
+								init.sell(choice, "body");
+							}
+						}
+					}else if(choice == 3){
+						while(true){
+							invenInit.view("leg");
+							System.out.println("Current Gold: " + Town.player.getGp());
+							System.out.println("What would you like to sell?");
+							choice = Start.input.NumInput();
+							if(choice == 0){
+								break;
+							}
+							if(Inventory.l_List.size() == 0) {
+								System.out.println("There's nothing to sell");
+							}else if(choice <= Inventory.l_List.size()){
+								init.sell(choice, "leg");
+							}
+						}
+					}else if(choice == 4){
+						while(true){
+							invenInit.view("glove");
+							System.out.println("Current Gold: " + Town.player.getGp());
+							System.out.println("What would you like to sell?");
+							choice = Start.input.NumInput();
+							if(choice == 0){
+								break;
+							}
+							if(Inventory.gList.size() == 0) {
+								System.out.println("There's nothing to sell");
+							}else if(choice <= Inventory.gList.size()){
+								init.sell(choice, "glove");
+							}
+						}
+					}else if(choice == 5){
+						while(true){
+							invenInit.view("ring");
+							System.out.println("Current Gold: " + Town.player.getGp());
+							System.out.println("What would you like to sell?");
+							choice = Start.input.NumInput();
+							if(choice == 0){
+								break;
+							}
+							if(Inventory.rList.size() == 0) {
+								System.out.println("There's nothing to sell");
+							}else if(choice <= Inventory.rList.size()){
+								init.sell(choice, "ring");
+							}
+						}
 					}
 				}
 			}
