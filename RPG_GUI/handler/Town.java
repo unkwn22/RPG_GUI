@@ -32,7 +32,7 @@ public class Town {
 		while(true) {
 			System.out.print("Name: " + player.getName() + " | HP: " + player.getMAX_HP() + "/" 
 			+ player.getHp() + " | Coins: " + player.getGp() + " | Equipped: ");
-			if(Inventory.current.size() == 0) {
+			if(Inventory.current.get(0) == null) {
 				System.out.print("nothing" + " | Damage: " + player.getDamage());
 			}else {
 				System.out.print(Inventory.current.get(0).getName() + " | Damage: " + player.getDamage());
@@ -40,6 +40,7 @@ public class Town {
 			System.out.print(" | Gender: " + player.getGender() + "\n");
 			System.out.println("1. Battle | 2. Shop | 3. Inventory | 4. Save | 5. Quit");
 			int choice = Start.input.NumInput();
+			Start.clear.clear();
 			if(choice == 1) {
 				b.viewBattle();
 			}else if(choice == 2) {
