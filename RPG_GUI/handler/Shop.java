@@ -34,6 +34,7 @@ public class Shop {
 		while(true) {
 			System.out.println("1. Buy | 2. Sell | 0. Exit");
 			int choice = Start.input.NumInput();
+			Start.clear.clear();
 			if(choice == 0) {
 				break;
 			}else if(choice == 1) {
@@ -49,6 +50,7 @@ public class Shop {
 		while(true) {
 			System.out.println("1. Weapons | 2. Potions | 3. Armour | 0. Back");
 			int choice = Start.input.NumInput();
+			Start.clear.clear();
 			if(choice == 0) {
 				break;
 			}else if(choice == 1) {
@@ -60,6 +62,7 @@ public class Shop {
 					System.out.println("Current Gold: " + Town.player.getGp());
 					System.out.println("What would you like to buy?");
 					choice = Start.input.NumInput();
+					Start.clear.clear();
 					if(choice == 0) {
 						break;
 					}else if(choice <= weapons.size()){
@@ -76,6 +79,7 @@ public class Shop {
 					System.out.println("Current Gold: " + Town.player.getGp());
 					System.out.println("What would you like to buy?");
 					choice = Start.input.NumInput();
+					Start.clear.clear();
 					if(choice == 0) {
 						break;
 					}else if(choice <= potions.size()){
@@ -88,6 +92,7 @@ public class Shop {
 					System.out.println("1. Helmets | 2. Body | 3. Legs | 4. Gloves | 5. Rings | 0. Back");
 					System.out.println("[0] Back");
 					choice = Start.input.NumInput();
+					Start.clear.clear();
 					if(choice == 0) {
 						break;
 					}else if(choice == 1){
@@ -99,6 +104,7 @@ public class Shop {
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0) {
 								break;
 							}else if(choice <= helmets.size()){
@@ -115,6 +121,7 @@ public class Shop {
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0) {
 								break;
 							}else if(choice <= body.size()){
@@ -131,6 +138,7 @@ public class Shop {
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0) {
 								break;
 							}else if(choice <= legs.size()){
@@ -147,6 +155,7 @@ public class Shop {
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0) {
 								break;
 							}else if(choice <= gloves.size()){
@@ -163,6 +172,7 @@ public class Shop {
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0) {
 								break;
 							}else if(choice <= rings.size()){
@@ -181,6 +191,7 @@ public class Shop {
 		while(true) {
 			System.out.println("1. Weapon | 2. Potion | 3. Armour | 0. Back");
 			int choice = Start.input.NumInput();
+			Start.clear.clear();
 			if(choice == 0){
 				break;
 			}else if(choice == 1) {
@@ -189,6 +200,7 @@ public class Shop {
 					System.out.println("Current Gold: " + Town.player.getGp());
 					System.out.println("What would you like to sell?");
 					choice = Start.input.NumInput();
+					Start.clear.clear();
 					if(choice == 0){
 						break;
 					}
@@ -204,6 +216,7 @@ public class Shop {
 					System.out.println("Current Gold: " + Town.player.getGp());
 					System.out.println("What would you like to sell?");
 					choice = Start.input.NumInput();
+					Start.clear.clear();
 					if(choice == 0){
 						break;
 					}
@@ -218,6 +231,8 @@ public class Shop {
 					System.out.println("1. Helmets | 2. Body | 3. Legs | 4. Gloves | 5. Rings | 0. Back");
 					System.out.println("[0] Back");
 					choice = Start.input.NumInput();
+					Start.clear.clear();
+					Start.clear.clear();
 					if(choice == 0){
 						break;
 					}else if(choice == 1){
@@ -241,6 +256,7 @@ public class Shop {
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to sell?");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0){
 								break;
 							}
@@ -256,6 +272,7 @@ public class Shop {
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to sell?");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0){
 								break;
 							}
@@ -271,6 +288,7 @@ public class Shop {
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to sell?");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0){
 								break;
 							}
@@ -286,6 +304,7 @@ public class Shop {
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to sell?");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0){
 								break;
 							}

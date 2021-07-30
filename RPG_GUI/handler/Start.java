@@ -1,11 +1,13 @@
 package handler;
 
 import entity.Human;
+import util.Clear;
 import util.Input;
 
 public class Start {
 	
 	static Input input = new Input();
+	static Clear clear = new Clear();
 	
 	public Human characterSettings() {
 		boolean start = true;
@@ -14,6 +16,7 @@ public class Start {
 		while(start) {
 			System.out.println("1. New Game | 2. Exit");
 			int choice = input.NumInput();
+			Start.clear.clear();
 			if(choice == 1) {
 				start = false;
 				settings = true;
@@ -26,10 +29,12 @@ public class Start {
 		while(settings) {
 			System.out.println("Enter you name");
 			String name = input.LetterInput();
+			Start.clear.clear();
 			System.out.println("1. Male | 2. Female");
 			System.out.println("Your gender");
 			int gender = input.NumInput();
-			Human player = new Human(name, 10, 10, 1, 3, 3,2000, gender);
+			Start.clear.clear();
+			Human player = new Human(name, 10, 10, 1, 3, 3,20000000, gender);
 			return player;
 		}
 		
