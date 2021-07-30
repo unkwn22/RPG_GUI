@@ -102,63 +102,6 @@ public class ShopInit {
 		}
 	}
 
-	public int findCost(int choice, String type){
-		int itemCost = 0;
-
-		if(type.equals("weapon")){
-			for(int i = 0; i < Shop.weapons.size(); i++){
-				if(Inventory.wList.get(choice-1).getName().equals(Shop.weapons.get(i).getName())){
-					itemCost = Shop.weapons.get(i).getCost();
-					break;
-				}
-			}
-		}else if(type.equals("helmet")){
-			for(int i = 0; i < Shop.helmets.size(); i++){
-				if(Inventory.hList.get(choice-1).getName().equals(Shop.helmets.get(i).getName())){
-					itemCost = Shop.helmets.get(i).getCost();
-					break;
-				}
-			}
-		}else if(type.equals("body")){
-			for(int i = 0; i < Shop.body.size(); i++){
-				if(Inventory.bList.get(choice-1).getName().equals(Shop.body.get(i).getName())){
-					itemCost = Shop.body.get(i).getCost();
-					break;
-				}
-			}
-		}else if(type.equals("leg")){
-			for(int i = 0; i < Shop.legs.size(); i++){
-				if(Inventory.l_List.get(choice-1).getName().equals(Shop.legs.get(i).getName())){
-					itemCost = Shop.legs.get(i).getCost();
-					break;
-				}
-			}
-		}else if(type.equals("glove")){
-			for(int i = 0; i < Shop.gloves.size(); i++){
-				if(Inventory.gList.get(choice-1).getName().equals(Shop.gloves.get(i).getName())){
-					itemCost = Shop.gloves.get(i).getCost();
-					break;
-				}
-			}
-		}else if(type.equals("ring")){
-			for(int i = 0; i < Shop.rings.size(); i++){
-				if(Inventory.rList.get(choice-1).getName().equals(Shop.rings.get(i).getName())){
-					itemCost = Shop.rings.get(i).getCost();
-					break;
-				}
-			}
-		}else if(type.equals("potion")){
-			for(int i = 0; i < Shop.potions.size(); i++){
-				if(Inventory.pList.get(choice-1).getName().equals(Shop.potions.get(i).getName())){
-					itemCost = Shop.potions.get(i).getCost();
-					break;
-				}
-			}
-		}
-
-		return itemCost;
-	}
-
 	public void sell(int choice, String type){
 		if(type.equals("weapon")){
 			current_gp = Town.player.getGp();
@@ -217,5 +160,62 @@ public class ShopInit {
 			Town.player.setGp(Town.player.getGp() + sellPrice);
 			System.out.println("Sold");
 		}
+	}
+
+	public int findCost(int choice, String type){
+		int itemCost = 0;
+
+		if(type.equals("weapon")){
+			for(int i = 0; i < Shop.weapons.size(); i++){
+				if(Inventory.wList.get(choice-1).getName().equals(Shop.weapons.get(i).getName())){
+					itemCost = Shop.weapons.get(i).getCost();
+					break;
+				}
+			}
+		}else if(type.equals("helmet")){
+			for(int i = 0; i < Shop.helmets.size(); i++){
+				if(Inventory.hList.get(choice-1).getName().equals(Shop.helmets.get(i).getName())){
+					itemCost = Shop.helmets.get(i).getCost();
+					break;
+				}
+			}
+		}else if(type.equals("body")){
+			for(int i = 0; i < Shop.body.size(); i++){
+				if(Inventory.bList.get(choice-1).getName().equals(Shop.body.get(i).getName())){
+					itemCost = Shop.body.get(i).getCost();
+					break;
+				}
+			}
+		}else if(type.equals("leg")){
+			for(int i = 0; i < Shop.legs.size(); i++){
+				if(Inventory.l_List.get(choice-1).getName().equals(Shop.legs.get(i).getName())){
+					itemCost = Shop.legs.get(i).getCost();
+					break;
+				}
+			}
+		}else if(type.equals("glove")){
+			for(int i = 0; i < Shop.gloves.size(); i++){
+				if(Inventory.gList.get(choice-1).getName().equals(Shop.gloves.get(i).getName())){
+					itemCost = Shop.gloves.get(i).getCost();
+					break;
+				}
+			}
+		}else if(type.equals("ring")){
+			for(int i = 0; i < Shop.rings.size(); i++){
+				if(Inventory.rList.get(choice-1).getName().equals(Shop.rings.get(i).getName())){
+					itemCost = Shop.rings.get(i).getCost();
+					break;
+				}
+			}
+		}else if(type.equals("potion")){
+			for(int i = 0; i < Shop.potions.size(); i++){
+				if(Inventory.pList.get(choice-1).getName().equals(Shop.potions.get(i).getName())){
+					itemCost = Shop.potions.get(i).getCost();
+					break;
+				}
+			}
+		}
+
+		return itemCost;
 	}
 }
