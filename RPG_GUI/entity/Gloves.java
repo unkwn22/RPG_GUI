@@ -8,4 +8,12 @@ public class Gloves extends Armour{
         super(name, cost, def);
         this.accuracy = accuracy;
     }
+
+    public int getAccuracy() {
+        return accuracy;
+    }
+
+    public void setAccuracy(int accuracy) {
+        this.accuracy = accuracy;
+    }
 }

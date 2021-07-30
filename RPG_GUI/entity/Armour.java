@@ -8,4 +8,12 @@ public class Armour extends Item{
         super(name, cost);
         this.def = def;
     }
+
+    public int getDef() {
+        return def;
+    }
+
+    public void setDef(int def) {
+        this.def = def;
+    }
 }
