@@ -6,6 +6,12 @@ import entity.Human;
 import entity.Monster;
 import entity.Potion;
 import entity.Weapon;
+import entity.Helmet;
+import entity.Body;
+import entity.Legs;
+import entity.Gloves;
+import entity.Ring;
+
 
 public class Town {
 	
@@ -15,9 +21,10 @@ public class Town {
 	Inventory inven = new Inventory();
 	
 	//constructor only called once from app.Main class
-	public Town(Human player, ArrayList<Weapon> weapons, ArrayList<Potion> potions, ArrayList<Monster> monster) {
+	public Town(Human player, ArrayList<Weapon> weapons, ArrayList<Potion> potions, ArrayList<Monster> monster, ArrayList<Helmet> helmets,
+				ArrayList<Body> body, ArrayList<Legs> legs, ArrayList<Gloves> gloves, ArrayList<Ring> rings) {
 		Town.player = player;
-		s = new Shop(weapons, potions);
+		s = new Shop(weapons, potions, helmets, body, legs, gloves, rings);
 		b = new Battle(monster);
 	}
 	
