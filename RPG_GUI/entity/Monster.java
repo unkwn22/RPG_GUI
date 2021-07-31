@@ -5,8 +5,8 @@ public class Monster extends Unit {
 	private int gpDrop;
 	private int expDrop;
 
-	public Monster(String name, int MAX_HP, int hp, int damage, int def, int lvl, int gpDrop, int expDrop) {
-		super(name, MAX_HP, hp, damage, def, lvl);
+	public Monster(String name, int MAX_HP, int hp, int damage, int def, int acc, int lvl, int gpDrop, int expDrop) {
+		super(name, MAX_HP, hp, damage, def, acc, lvl);
 		this.gpDrop = gpDrop;
 		this.expDrop = expDrop;
 	}
