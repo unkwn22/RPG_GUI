@@ -149,22 +149,6 @@ public class InvenInit {
 		}
 	}
 	
-	public void tossWeapon() {
-		while(true) {
-			view("weapon");
-			System.out.println("Which weapon would you like to toss?");
-			int choice = Start.input.NumInput();
-			Start.clear.clear();
-			if(choice == 0) {
-				break;
-			}else if(Inventory.wList.size() > 0) {
-				Inventory.wList.remove(choice-1);
-			}else {
-				System.out.println("There's nothing to toss");
-			}
-		}
-	}
-	
 	public void usePotion() {
 		while(true) {
 			view("potion");
@@ -185,22 +169,6 @@ public class InvenInit {
 					Town.player.setHp(currentMax);
 				}
 				Inventory.pList.remove(choice-1);
-			}
-		}
-	}
-	
-	public void tossPotion() {
-		while(true) {
-			view("potion");
-			System.out.println("Which potion would you like to toss?");
-			int choice = Start.input.NumInput();
-			Start.clear.clear();
-			if(choice == 0) {
-				break;
-			}else if(Inventory.pList.size() > 0) {
-				Inventory.pList.remove(choice-1);
-			}else {
-				System.out.println("There's nothing to toss");
 			}
 		}
 	}
@@ -259,38 +227,149 @@ public class InvenInit {
 				System.out.println("[" + (i+1) + "]" + Inventory.wList.get(i).getName() + " | " + Inventory.wList.get(i).getDamage());
 			}
 			System.out.println("[0] Back");
+			System.out.println("Which weapon would you like to toss?");
 		}else if(type.equals("potion")) {
 			for(int i = 0; i < Inventory.pList.size(); i++) {
 				System.out.println("[" + (i+1) + "]" + Inventory.pList.get(i).getName() + " | " + Inventory.pList.get(i).getHeal());
 			}
 			System.out.println("[0] Back");
+			System.out.println("Which potion would you like to toss?");
 		}else if(type.equals("helmet")){
 			for(int i = 0; i < Inventory.hList.size(); i++) {
 				System.out.println("[" + (i+1) + "]" + Inventory.hList.get(i).getName() + " | " + Inventory.hList.get(i).getDef());
 			}
 			System.out.println("[0] Back");
+			System.out.println("Which helmet would you like to toss?");
 		}else if(type.equals("body")){
 			for(int i = 0; i < Inventory.bList.size(); i++) {
 				System.out.println("[" + (i+1) + "]" + Inventory.bList.get(i).getName() + " | " + Inventory.bList.get(i).getDef());
 			}
 			System.out.println("[0] Back");
+			System.out.println("Which body would you like to toss?");
 		}else if(type.equals("leg")){
 			for(int i = 0; i < Inventory.l_List.size(); i++) {
 				System.out.println("[" + (i+1) + "]" + Inventory.l_List.get(i).getName() + " | " + Inventory.l_List.get(i).getDef());
 			}
 			System.out.println("[0] Back");
+			System.out.println("Which legs would you like to toss?");
 		}else if(type.equals("glove")){
 			for(int i = 0; i < Inventory.gList.size(); i++) {
 				System.out.println("[" + (i+1) + "]" + Inventory.gList.get(i).getName() + " | " + Inventory.gList.get(i).getDef());
 			}
 			System.out.println("[0] Back");
+			System.out.println("Which gloves would you like to toss?");
 		}else if(type.equals("ring")){
 			for(int i = 0; i < Inventory.rList.size(); i++) {
 				System.out.println("[" + (i+1) + "]" + Inventory.rList.get(i).getName() + " | " + Inventory.rList.get(i).getDef());
 			}
 			System.out.println("[0] Back");
+			System.out.println("Which ring would you like to toss?");
 		}
 	}
-	
-	
+
+	//Toss
+	public void tossWeapon() {
+		while(true) {
+			view("weapon");
+			int choice = Start.input.NumInput();
+			Start.clear.clear();
+			if(choice == 0) {
+				break;
+			}else if(Inventory.wList.size() > 0) {
+				Inventory.wList.remove(choice-1);
+			}else {
+				System.out.println("There's nothing to toss");
+			}
+		}
+	}
+
+	public void tossPotion() {
+		while(true) {
+			view("potion");
+			int choice = Start.input.NumInput();
+			Start.clear.clear();
+			if(choice == 0) {
+				break;
+			}else if(Inventory.pList.size() > 0) {
+				Inventory.pList.remove(choice-1);
+			}else {
+				System.out.println("There's nothing to toss");
+			}
+		}
+	}
+
+	public void tossHelmet(){
+		while(true){
+			view("helmet");
+			int choice = Start.input.NumInput();
+			Start.clear.clear();
+			if(choice == 0) {
+				break;
+			}else if(Inventory.hList.size() > 0) {
+				Inventory.hList.remove(choice-1);
+			}else {
+				System.out.println("There's nothing to toss");
+			}
+		}
+	}
+
+	public void tossBody(){
+		while(true){
+			view("body");
+			int choice = Start.input.NumInput();
+			Start.clear.clear();
+			if(choice == 0) {
+				break;
+			}else if(Inventory.bList.size() > 0) {
+				Inventory.bList.remove(choice-1);
+			}else {
+				System.out.println("There's nothing to toss");
+			}
+		}
+	}
+
+	public void tossLegs(){
+		while(true){
+			view("leg");
+			int choice = Start.input.NumInput();
+			Start.clear.clear();
+			if(choice == 0) {
+				break;
+			}else if(Inventory.l_List.size() > 0) {
+				Inventory.l_List.remove(choice-1);
+			}else {
+				System.out.println("There's nothing to toss");
+			}
+		}
+	}
+
+	public void tossGloves(){
+		while(true){
+			view("glove");
+			int choice = Start.input.NumInput();
+			Start.clear.clear();
+			if(choice == 0) {
+				break;
+			}else if(Inventory.gList.size() > 0) {
+				Inventory.gList.remove(choice-1);
+			}else {
+				System.out.println("There's nothing to toss");
+			}
+		}
+	}
+
+	public void tossRing(){
+		while(true){
+			view("ring");
+			int choice = Start.input.NumInput();
+			Start.clear.clear();
+			if(choice == 0) {
+				break;
+			}else if(Inventory.rList.size() > 0) {
+				Inventory.rList.remove(choice-1);
+			}else {
+				System.out.println("There's nothing to toss");
+			}
+		}
+	}
 }

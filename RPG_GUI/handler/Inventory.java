@@ -69,7 +69,7 @@ public class Inventory {
 			}else if(choice == 3) {
 				while(true) {
 					System.out.println("Which item would you like to toss?");
-					System.out.println("1. Weapon | 2. Potion | 0. Back");
+					System.out.println("1. Weapon | 2. Potion | 3. Armour | 0. Back");
 					choice = Start.input.NumInput();
 					Start.clear.clear();
 					if(choice == 0) {
@@ -78,6 +78,24 @@ public class Inventory {
 						init.tossWeapon();
 					}else if(choice == 2) {
 						init.tossPotion();
+					}else if(choice == 3){
+						while(true){
+							System.out.println("1. Helmet | 2. Body | 3. Legs | 4. Gloves | 5. Ring | 0. Back");
+							choice = Start.input.NumInput();
+							if(choice == 0){
+								break;
+							}else if(choice == 1){
+								init.tossHelmet();
+							}else if(choice == 2){
+								init.tossBody();
+							}else if(choice == 3){
+								init.tossLegs();
+							}else if(choice == 4){
+								init.tossGloves();
+							}else if(choice == 5){
+								init.tossRing();
+							}
+						}
 					}
 				}
 			}
