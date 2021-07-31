@@ -19,16 +19,24 @@ public class InvenInit {
 					break;
 				}else if(Inventory.wList.size() > 0){
 					if(choice <= Inventory.wList.size()){
+						//localizing weapon's damage and accuracy
+						int damage = Inventory.wList.get(choice-1).getDamage();
+						int accuracy = Inventory.wList.get(choice-1).getAccuracy();
+						//checks if its a fresh starter
 						if(Inventory.current.get(0) == null){
 							Inventory.current.remove(0);
 							Inventory.current.add(Inventory.wList.get(choice-1));
 							Inventory.wList.remove(choice-1);
+							//if its already wielding something
 						}else{
 							Inventory.current.add(Inventory.wList.get(choice-1));
 							Inventory.wList.add((Weapon) Inventory.current.get(0));
 							Inventory.wList.remove(choice-1);
 							Inventory.current.remove(0);
 						}
+						//setting plus damage and accuracy
+						Town.player.setPlusDam(damage);
+						Town.player.setPlusAcc(accuracy);
 					}
 				}
 			}
@@ -42,15 +50,19 @@ public class InvenInit {
 				if(choice == 0){
 					break;
 				}else if(Inventory.hList.size() > 0){
+					int defense = Inventory.hList.get(choice-1).getDef();
 					if(choice <= Inventory.hList.size()){
 						if(Inventory.currentArmour.get(0) == null){
 							Inventory.currentArmour.set(0, Inventory.hList.get(choice-1));
 							Inventory.hList.remove(choice-1);
 						}else{
+							//preventing plus def stack
+							Town.player.setPlusDef(Town.player.getPlusDef() - Inventory.currentArmour.get(0).getDef());
 							Inventory.hList.add((Helmet) Inventory.currentArmour.get(0));
 							Inventory.currentArmour.set(0, Inventory.hList.get(choice-1));
 							Inventory.hList.remove(choice-1);
 						}
+						Town.player.setPlusDef(Town.player.getPlusDef() + defense);
 					}
 				}
 			}
@@ -66,14 +78,17 @@ public class InvenInit {
 					break;
 				}else if(Inventory.bList.size() > 0){
 					if(choice <= Inventory.bList.size()){
+						int defense = Inventory.bList.get(choice-1).getDef();
 						if(Inventory.currentArmour.get(1) == null){
 							Inventory.currentArmour.set(1, Inventory.bList.get(choice-1));
 							Inventory.bList.remove(choice-1);
 						}else{
+							Town.player.setPlusDef(Town.player.getPlusDef() - Inventory.currentArmour.get(1).getDef());
 							Inventory.bList.add((Body) Inventory.currentArmour.get(1));
 							Inventory.currentArmour.set(1, Inventory.bList.get(choice-1));
 							Inventory.bList.remove(choice-1);
 						}
+						Town.player.setPlusDef(Town.player.getPlusDef() + defense);
 					}
 				}
 			}
@@ -89,14 +104,17 @@ public class InvenInit {
 					break;
 				}else if(Inventory.l_List.size() > 0){
 					if(choice <= Inventory.l_List.size()){
+						int defense = Inventory.l_List.get(choice-1).getDef();
 						if(Inventory.currentArmour.get(2) == null){
 							Inventory.currentArmour.set(2, Inventory.l_List.get(choice-1));
 							Inventory.l_List.remove(choice-1);
 						}else{
+							Town.player.setPlusDef(Town.player.getPlusDef() - Inventory.currentArmour.get(2).getDef());
 							Inventory.l_List.add((Legs) Inventory.currentArmour.get(2));
 							Inventory.currentArmour.set(2, Inventory.l_List.get(choice-1));
 							Inventory.l_List.remove(choice-1);
 						}
+						Town.player.setPlusDef(Town.player.getPlusDef() + defense);
 					}
 				}
 			}
@@ -111,15 +129,23 @@ public class InvenInit {
 				if(choice == 0){
 					break;
 				}else if(Inventory.gList.size() > 0){
+					int defense = Inventory.gList.get(choice-1).getDef();
+					int accuracy = Inventory.gList.get(choice-1).getAccuracy();
 					if(choice <= Inventory.gList.size()){
 						if(Inventory.currentArmour.get(3) == null){
 							Inventory.currentArmour.set(3, Inventory.gList.get(choice-1));
 							Inventory.gList.remove(choice-1);
 						}else{
+							Town.player.setPlusDef(Town.player.getPlusDef() - Inventory.currentArmour.get(3).getDef());
+							//since currentArmour element is set to Armour, casting it to gloves and finding out the accuracy
+							Gloves gloves = (Gloves) Inventory.currentArmour.get(3);
+							Town.player.setPlusAcc(Town.player.getPlusAcc() - gloves.getAccuracy());
 							Inventory.gList.add((Gloves) Inventory.currentArmour.get(3));
 							Inventory.currentArmour.set(3, Inventory.gList.get(choice-1));
 							Inventory.gList.remove(choice-1);
 						}
+						Town.player.setPlusDef(Town.player.getPlusDef() + defense);
+						Town.player.setPlusAcc(Town.player.getPlusAcc() + accuracy);
 					}
 				}
 			}
@@ -135,14 +161,21 @@ public class InvenInit {
 					break;
 				}else if(Inventory.rList.size() > 0){
 					if(choice <= Inventory.rList.size()){
+						int defense = Inventory.rList.get(choice-1).getDef();
+						int accuracy = Inventory.rList.get(choice-1).getAccuracy();
 						if(Inventory.currentArmour.get(4) == null){
 							Inventory.currentArmour.set(4, Inventory.rList.get(choice-1));
 							Inventory.rList.remove(choice-1);
 						}else{
+							Town.player.setPlusDef(Town.player.getPlusDef() - Inventory.currentArmour.get(4).getDef());
+							Ring ring = (Ring) Inventory.currentArmour.get(4);
+							Town.player.setPlusAcc(Town.player.getPlusAcc() - ring.getAccuracy());
 							Inventory.rList.add((Ring) Inventory.currentArmour.get(4));
 							Inventory.currentArmour.set(4, Inventory.rList.get(choice-1));
 							Inventory.rList.remove(choice-1);
 						}
+						Town.player.setPlusDef(Town.player.getPlusDef() + defense);
+						Town.player.setPlusAcc(Town.player.getPlusAcc() + accuracy);
 					}
 				}
 			}
@@ -190,7 +223,6 @@ public class InvenInit {
 				}else{
 					System.out.print("[" + Inventory.currentArmour.get(i).getName() + "]");
 				}
-
 				//Weapon
 				if(Inventory.current.get(0) == null){
 					System.out.println("[Nothing]");
@@ -218,52 +250,160 @@ public class InvenInit {
 				}
 			}
 		}
+		System.out.println("Current Damage: " + Town.player.getDamage() + " +" + Town.player.getPlusDam());
+		System.out.println("Current Defense: " + Town.player.getDef() + " +" + Town.player.getPlusDef());
+		System.out.println("Current Accuracy: " + Town.player.getAcc() + " +" + Town.player.getPlusAcc());
 	}
 	
 	//viewing inventory items
 	public void view(String type) {
+		//localizing first spaces in between name and damage
+		int firstLength;
+		int secondLength;
 		if(type.equals("weapon")) {
-			for(int i = 0; i < Inventory.wList.size(); i++) {
-				System.out.println("[" + (i+1) + "]" + Inventory.wList.get(i).getName() + " | " + Inventory.wList.get(i).getDamage());
+			firstLength = 18;
+			secondLength = 32;
+			System.out.println("┌---Name------------Damage----Accuracy--┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < Inventory.wList.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String weaponName = Inventory.wList.get(i).getName();
+				int firstRemainingSpaces = firstLength - weaponName.length();
+				sb.append(weaponName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(Inventory.wList.get(i).getDamage());
+				int secondRemainingSpaces = secondLength - sb.length();
+				for(int j = 0; j < secondRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(Inventory.wList.get(i).getAccuracy());
+				System.out.println(sb);
 			}
+			System.out.println("└---------------------------------------┘");
 			System.out.println("[0] Back");
-			System.out.println("Which weapon would you like to toss?");
 		}else if(type.equals("potion")) {
-			for(int i = 0; i < Inventory.pList.size(); i++) {
-				System.out.println("[" + (i+1) + "]" + Inventory.pList.get(i).getName() + " | " + Inventory.pList.get(i).getHeal());
+			firstLength = 18;
+			System.out.println("┌---Name-------------Heal--┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < Inventory.pList.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String weaponName = Inventory.pList.get(i).getName();
+				int firstRemainingSpaces = firstLength - weaponName.length();
+				sb.append(weaponName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(Inventory.pList.get(i).getHeal());
+				System.out.println(sb);
 			}
+			System.out.println("└--------------------------┘");
 			System.out.println("[0] Back");
-			System.out.println("Which potion would you like to toss?");
 		}else if(type.equals("helmet")){
-			for(int i = 0; i < Inventory.hList.size(); i++) {
-				System.out.println("[" + (i+1) + "]" + Inventory.hList.get(i).getName() + " | " + Inventory.hList.get(i).getDef());
+			firstLength = 18;
+			System.out.println("┌---Name-----------Defense-┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < Inventory.hList.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String weaponName = Inventory.hList.get(i).getName();
+				int firstRemainingSpaces = firstLength - weaponName.length();
+				sb.append(weaponName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(Inventory.hList.get(i).getDef());
+				System.out.println(sb);
 			}
+			System.out.println("└--------------------------┘");
 			System.out.println("[0] Back");
-			System.out.println("Which helmet would you like to toss?");
 		}else if(type.equals("body")){
-			for(int i = 0; i < Inventory.bList.size(); i++) {
-				System.out.println("[" + (i+1) + "]" + Inventory.bList.get(i).getName() + " | " + Inventory.bList.get(i).getDef());
+			firstLength = 18;
+			System.out.println("┌---Name-----------Defense-┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < Inventory.bList.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String weaponName = Inventory.bList.get(i).getName();
+				int firstRemainingSpaces = firstLength - weaponName.length();
+				sb.append(weaponName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(Inventory.bList.get(i).getDef());
+				System.out.println(sb);
 			}
+			System.out.println("└--------------------------┘");
 			System.out.println("[0] Back");
-			System.out.println("Which body would you like to toss?");
 		}else if(type.equals("leg")){
-			for(int i = 0; i < Inventory.l_List.size(); i++) {
-				System.out.println("[" + (i+1) + "]" + Inventory.l_List.get(i).getName() + " | " + Inventory.l_List.get(i).getDef());
+			firstLength = 18;
+			System.out.println("┌---Name-----------Defense-┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < Inventory.l_List.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String weaponName = Inventory.l_List.get(i).getName();
+				int firstRemainingSpaces = firstLength - weaponName.length();
+				sb.append(weaponName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(Inventory.l_List.get(i).getDef());
+				System.out.println(sb);
 			}
+			System.out.println("└--------------------------┘");
 			System.out.println("[0] Back");
-			System.out.println("Which legs would you like to toss?");
 		}else if(type.equals("glove")){
-			for(int i = 0; i < Inventory.gList.size(); i++) {
-				System.out.println("[" + (i+1) + "]" + Inventory.gList.get(i).getName() + " | " + Inventory.gList.get(i).getDef());
+			firstLength = 18;
+			secondLength = 32;
+			System.out.println("┌---Name-----------Defense----Accuracy--┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < Inventory.gList.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String weaponName = Inventory.gList.get(i).getName();
+				int firstRemainingSpaces = firstLength - weaponName.length();
+				sb.append(weaponName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(Inventory.gList.get(i).getDef());
+				int secondRemainingSpaces = secondLength - sb.length();
+				for(int j = 0; j < secondRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(Inventory.gList.get(i).getAccuracy());
+				System.out.println(sb);
 			}
+			System.out.println("└---------------------------------------┘");
 			System.out.println("[0] Back");
-			System.out.println("Which gloves would you like to toss?");
 		}else if(type.equals("ring")){
-			for(int i = 0; i < Inventory.rList.size(); i++) {
-				System.out.println("[" + (i+1) + "]" + Inventory.rList.get(i).getName() + " | " + Inventory.rList.get(i).getDef());
+			firstLength = 18;
+			secondLength = 32;
+			System.out.println("┌---Name-----------Defense----Accuracy--┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < Inventory.rList.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String weaponName = Inventory.rList.get(i).getName();
+				int firstRemainingSpaces = firstLength - weaponName.length();
+				sb.append(weaponName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(Inventory.rList.get(i).getDef());
+				int secondRemainingSpaces = secondLength - sb.length();
+				for(int j = 0; j < secondRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(Inventory.rList.get(i).getAccuracy());
+				System.out.println(sb);
 			}
+			System.out.println("└---------------------------------------┘");
 			System.out.println("[0] Back");
-			System.out.println("Which ring would you like to toss?");
 		}
 	}
 
