@@ -7,14 +7,16 @@ public abstract class Unit {
 	private int hp;
 	private int damage;
 	private int def;
+	private int acc;
 	private int lvl;
 	
-	public Unit(String name, int MAX_HP, int hp, int damage, int def ,int lvl) {
+	public Unit(String name, int MAX_HP, int hp, int damage, int def, int acc ,int lvl) {
 		this.name = name;
 		this.MAX_HP = MAX_HP;
 		this.hp = hp;
 		this.damage = damage;
 		this.def = def;
+		this.acc = acc;
 		this.lvl = lvl;
 	}
 
@@ -62,5 +64,13 @@ public abstract class Unit {
 
 	public void setLvl(int lvl){
 		this.lvl = lvl;
+	}
+
+	public int getAcc() {
+		return acc;
+	}
+
+	public void setAcc(int acc) {
+		this.acc = acc;
 	}
 }
