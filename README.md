@@ -1,4 +1,4 @@
 # RPG_GUI
 
 # Entity structure table
-![](images/CLASS_ENTITY2.PNG)
+![](images/CLASS_ENTITY3.PNG)
