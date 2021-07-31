@@ -34,7 +34,7 @@ public class Start {
 			System.out.println("Your gender");
 			int gender = input.NumInput();
 			Start.clear.clear();
-			Human player = new Human(name, 10, 10, 1, 3, 3,20000000, gender);
+			Human player = new Human(name, 10, 10, 1, 3, 30,3,20000000, gender, 10, 0, 0,0, 0);
 			return player;
 		}
 		

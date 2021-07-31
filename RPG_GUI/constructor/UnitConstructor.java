@@ -11,7 +11,7 @@ public class UnitConstructor {
 
     public ArrayList<Monster> initMonsters(){
 
-        Monster goblin = new Monster("Goblin", 5, 5, 2, 3, 3, 5, 10);
+        Monster goblin = new Monster("Goblin", 5, 5, 2, 3, 30,3,  5, 10);
         monster.add(goblin);
 
         return monster;
