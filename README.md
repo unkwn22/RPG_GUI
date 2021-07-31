@@ -3,7 +3,7 @@
 # Entity structure table
 ![](images/CLASS_ENTITY3.PNG)
 
-#Comparing changes from previous version
+# Comparing changes from previous version
 - Added unit base stats (level, defense)
 - Added monster experience drops
 - Added player's base stats (exp, plus damage, plus defense, plus accuracy)
