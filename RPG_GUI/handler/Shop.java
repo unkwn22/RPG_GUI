@@ -55,10 +55,7 @@ public class Shop {
 				break;
 			}else if(choice == 1) {
 				while(true) {
-					for(int i = 0; i < weapons.size(); i++) {
-						System.out.println("[" + (i+1) + "]" + weapons.get(i).getName() + " | " + weapons.get(i).getCost() + " | " + weapons.get(i).getDamage());
-					}
-					System.out.println("[0] Back");
+					view("weapon");
 					System.out.println("Current Gold: " + Town.player.getGp());
 					System.out.println("What would you like to buy?");
 					choice = Start.input.NumInput();
@@ -72,10 +69,7 @@ public class Shop {
 				}
 			}else if(choice == 2) {
 				while(true) {
-					for(int i = 0; i < potions.size(); i++) {
-						System.out.println("[" + (i+1) + "]" + potions.get(i).getName() + " | " + potions.get(i).getCost() + " | " + potions.get(i).getHeal());
-					}
-					System.out.println("[0] Back");
+					view("potion");
 					System.out.println("Current Gold: " + Town.player.getGp());
 					System.out.println("What would you like to buy?");
 					choice = Start.input.NumInput();
@@ -97,10 +91,7 @@ public class Shop {
 						break;
 					}else if(choice == 1){
 						while(true){
-							for(int i = 0; i < helmets.size(); i++) {
-								System.out.println("[" + (i+1) + "]" + helmets.get(i).getName() + " | " + helmets.get(i).getCost() + " | " + helmets.get(i).getDef());
-							}
-							System.out.println("[0] Back");
+							view("helmet");
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
@@ -114,10 +105,7 @@ public class Shop {
 						}
 					}else if(choice == 2){
 						while(true){
-							for(int i = 0; i < body.size(); i++) {
-								System.out.println("[" + (i+1) + "]" + body.get(i).getName() + " | " + body.get(i).getCost() + " | " + body.get(i).getDef());
-							}
-							System.out.println("[0] Back");
+							view("body");
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
@@ -131,10 +119,7 @@ public class Shop {
 						}
 					}else if(choice == 3){
 						while(true){
-							for(int i = 0; i < legs.size(); i++) {
-								System.out.println("[" + (i+1) + "]" + legs.get(i).getName() + " | " + legs.get(i).getCost() + " | " + legs.get(i).getDef());
-							}
-							System.out.println("[0] Back");
+							view("leg");
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
@@ -148,10 +133,7 @@ public class Shop {
 						}
 					}else if(choice == 4){
 						while(true){
-							for(int i = 0; i < gloves.size(); i++) {
-								System.out.println("[" + (i+1) + "]" + gloves.get(i).getName() + " | " + gloves.get(i).getCost() + " | " + gloves.get(i).getDef() + " | " + gloves.get(i).getAccuracy());
-							}
-							System.out.println("[0] Back");
+							view("glove");
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
@@ -165,10 +147,7 @@ public class Shop {
 						}
 					}else if(choice == 5){
 						while(true){
-							for(int i = 0; i < rings.size(); i++) {
-								System.out.println("[" + (i+1) + "]" + rings.get(i).getName() + " | " + rings.get(i).getCost() + " | " + rings.get(i).getDef() + " | " + rings.get(i).getAccuracy());
-							}
-							System.out.println("[0] Back");
+							view("ring");
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to buy?");
 							choice = Start.input.NumInput();
@@ -232,7 +211,6 @@ public class Shop {
 					System.out.println("[0] Back");
 					choice = Start.input.NumInput();
 					Start.clear.clear();
-					Start.clear.clear();
 					if(choice == 0){
 						break;
 					}else if(choice == 1){
@@ -241,6 +219,7 @@ public class Shop {
 							System.out.println("Current Gold: " + Town.player.getGp());
 							System.out.println("What would you like to sell?");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0){
 								break;
 							}
@@ -317,6 +296,158 @@ public class Shop {
 					}
 				}
 			}
+		}
+	}
+
+	//viewing inventory items
+	public void view(String type) {
+		//localizing first spaces in between name and damage
+		int firstLength;
+		int secondLength;
+		if(type.equals("weapon")) {
+			firstLength = 18;
+			secondLength = 32;
+			System.out.println("┌---Name------------Damage----Accuracy--┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < weapons.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String weaponName = weapons.get(i).getName();
+				int firstRemainingSpaces = firstLength - weaponName.length();
+				sb.append(weaponName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(weapons.get(i).getDamage());
+				int secondRemainingSpaces = secondLength - sb.length();
+				for(int j = 0; j < secondRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(weapons.get(i).getAccuracy());
+				System.out.println(sb);
+			}
+			System.out.println("└---------------------------------------┘");
+			System.out.println("[0] Back");
+		}else if(type.equals("potion")) {
+			firstLength = 18;
+			System.out.println("┌---Name-------------Heal--┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < potions.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String potionName = potions.get(i).getName();
+				int firstRemainingSpaces = firstLength - potionName.length();
+				sb.append(potionName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(potions.get(i).getHeal());
+				System.out.println(sb);
+			}
+			System.out.println("└--------------------------┘");
+			System.out.println("[0] Back");
+		}else if(type.equals("helmet")){
+			firstLength = 18;
+			System.out.println("┌---Name-----------Defense-┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < helmets.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String helmetName = helmets.get(i).getName();
+				int firstRemainingSpaces = firstLength - helmetName.length();
+				sb.append(helmetName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(helmets.get(i).getDef());
+				System.out.println(sb);
+			}
+			System.out.println("└--------------------------┘");
+			System.out.println("[0] Back");
+		}else if(type.equals("body")){
+			firstLength = 18;
+			System.out.println("┌---Name-----------Defense-┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < body.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String bodyName = body.get(i).getName();
+				int firstRemainingSpaces = firstLength - bodyName.length();
+				sb.append(bodyName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(body.get(i).getDef());
+				System.out.println(sb);
+			}
+			System.out.println("└--------------------------┘");
+			System.out.println("[0] Back");
+		}else if(type.equals("leg")){
+			firstLength = 18;
+			System.out.println("┌---Name-----------Defense-┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < legs.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String legName = legs.get(i).getName();
+				int firstRemainingSpaces = firstLength - legName.length();
+				sb.append(legName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(legs.get(i).getDef());
+				System.out.println(sb);
+			}
+			System.out.println("└--------------------------┘");
+			System.out.println("[0] Back");
+		}else if(type.equals("glove")){
+			firstLength = 18;
+			secondLength = 32;
+			System.out.println("┌---Name-----------Defense----Accuracy--┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < gloves.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String gloveName = gloves.get(i).getName();
+				int firstRemainingSpaces = firstLength - gloveName.length();
+				sb.append(gloveName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(gloves.get(i).getDef());
+				int secondRemainingSpaces = secondLength - sb.length();
+				for(int j = 0; j < secondRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(gloves.get(i).getAccuracy());
+				System.out.println(sb);
+			}
+			System.out.println("└---------------------------------------┘");
+			System.out.println("[0] Back");
+		}else if(type.equals("ring")){
+			firstLength = 18;
+			secondLength = 32;
+			System.out.println("┌---Name-----------Defense----Accuracy--┐");
+			//using string builder to measure spaces in between stats
+			for(int i = 0; i < rings.size(); i++){
+				StringBuilder sb = new StringBuilder();
+				sb.append("[" + (i+1) + "] ");
+				String ringName = rings.get(i).getName();
+				int firstRemainingSpaces = firstLength - ringName.length();
+				sb.append(ringName);
+				for(int j = 0; j < firstRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(rings.get(i).getDef());
+				int secondRemainingSpaces = secondLength - sb.length();
+				for(int j = 0; j < secondRemainingSpaces; j++){
+					sb.append(" ");
+				}
+				sb.append(rings.get(i).getAccuracy());
+				System.out.println(sb);
+			}
+			System.out.println("└---------------------------------------┘");
+			System.out.println("[0] Back");
 		}
 	}
 
