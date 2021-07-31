@@ -82,6 +82,7 @@ public class Inventory {
 						while(true){
 							System.out.println("1. Helmet | 2. Body | 3. Legs | 4. Gloves | 5. Ring | 0. Back");
 							choice = Start.input.NumInput();
+							Start.clear.clear();
 							if(choice == 0){
 								break;
 							}else if(choice == 1){
