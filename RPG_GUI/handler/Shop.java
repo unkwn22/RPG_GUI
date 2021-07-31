@@ -32,6 +32,7 @@ public class Shop {
 	
 	public void mainShop() {
 		while(true) {
+			System.out.println("┌----------SHOP-----------┐");
 			System.out.println("1. Buy | 2. Sell | 0. Exit");
 			int choice = Start.input.NumInput();
 			Start.clear.clear();
@@ -48,6 +49,7 @@ public class Shop {
 	//Buying
 	public void buyShop() {
 		while(true) {
+			System.out.println("┌---------------------BUY----------------------┐");
 			System.out.println("1. Weapons | 2. Potions | 3. Armour | 0. Back");
 			int choice = Start.input.NumInput();
 			Start.clear.clear();
@@ -83,6 +85,7 @@ public class Shop {
 				}
 			}else if(choice == 3){
 				while(true){
+					System.out.println("┌-------------------------BUY-ARMOUR--------------------------┐");
 					System.out.println("1. Helmets | 2. Body | 3. Legs | 4. Gloves | 5. Rings | 0. Back");
 					System.out.println("[0] Back");
 					choice = Start.input.NumInput();
@@ -168,6 +171,7 @@ public class Shop {
 	//Selling
 	public void sellShop() {
 		while(true) {
+			System.out.println("┌-------------------SELL--------------------┐");
 			System.out.println("1. Weapon | 2. Potion | 3. Armour | 0. Back");
 			int choice = Start.input.NumInput();
 			Start.clear.clear();
@@ -207,6 +211,7 @@ public class Shop {
 				}
 			}else if(choice == 3){
 				while(true){
+					System.out.println("┌-------------------------SELL-ARMOUR-------------------------┐");
 					System.out.println("1. Helmets | 2. Body | 3. Legs | 4. Gloves | 5. Rings | 0. Back");
 					System.out.println("[0] Back");
 					choice = Start.input.NumInput();

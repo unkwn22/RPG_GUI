@@ -30,14 +30,15 @@ public class Town {
 	
 	public void town() {
 		while(true) {
-			System.out.print("Name: " + player.getName() + " | HP: " + player.getMAX_HP() + "/" 
-			+ player.getHp() + " | Coins: " + player.getGp() + " | Equipped: ");
-			if(Inventory.current.get(0) == null) {
-				System.out.print("nothing" + " | Damage: " + player.getDamage());
-			}else {
-				System.out.print(Inventory.current.get(0).getName() + " | Damage: " + player.getDamage());
-			}
-			System.out.print(" | Gender: " + player.getGender() + "\n");
+			System.out.println("┌----------Player-Stats-----------┐");
+			System.out.println("Name: " + player.getName());
+			System.out.println("Gender: " + player.getGender());
+			System.out.println("Coins: " + player.getGp());
+			System.out.println("HP: " + player.getMAX_HP() + " / " + player.getHp());
+			inven.init.viewEquipments();
+			System.out.println("EXP: " + player.getMAX_EXP() + " / " + player.getExp());
+			System.out.println("└---------------------------------┘");
+			System.out.println("┌------------------------Town-------------------------┐");
 			System.out.println("1. Battle | 2. Shop | 3. Inventory | 4. Save | 5. Quit");
 			int choice = Start.input.NumInput();
 			Start.clear.clear();
