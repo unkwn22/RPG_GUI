@@ -13,11 +13,15 @@ public class Battle {
 
     Monster randomMonster = null;
 
+    //Monster stats
     String monsterName = null;
     int monsterHp = 0;
     int monsterDam = 0;
+    int monsterAcc = 0;
     int monsterDrop = 0;
+    int monsterExpDrop = 0;
 
+    //Player stats
     int myHp = 0;
     int myDam = 0;
 
@@ -30,14 +34,22 @@ public class Battle {
         this.monster = monster;
     }
 
+    public void getRandomMonster(){
+        randomMonster = monster.get(ran.nextInt(monster.size()));
+    }
+
     public void viewBattle(){
         fight = true;
+        //calling random monster
         getRandomMonster();
+        //localizing monster stats because battle sequence is an instance
         monsterName = randomMonster.getName();
         monsterHp = randomMonster.getHp();
         monsterDam = randomMonster.getDamage();
+        monsterAcc = randomMonster.getAcc();
         monsterDrop = randomMonster.getGpDrop();
-
+        monsterExpDrop = randomMonster.getExpDrop();
+        //localizing player stats
         myHp = Town.player.getHp();
         myDam = Town.player.getDamage();
 
@@ -53,6 +65,7 @@ public class Battle {
             System.out.println("[2] Bag");
             System.out.println("[0]Run");
             int choice = Start.input.NumInput();
+            Start.clear.clear();
             if(choice == 0){
                 break;
             }else if(choice == 1){
@@ -61,10 +74,6 @@ public class Battle {
 
             }
         }
-    }
-
-    public void getRandomMonster(){
-        randomMonster = monster.get(ran.nextInt(monster.size()));
     }
 
     public void initFight(){
